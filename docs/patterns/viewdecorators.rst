@@ -70,7 +70,7 @@ straightforward to read.
 
 The decorated function will then work as follows
 
-1. get the unique cache key for the current request base on the current
+1. get the unique cache key for the current request based on the current
    path.
 2. get the value for that key from the cache. If the cache returned
    something we will return that value.
@@ -82,11 +82,11 @@ Here the code::
     from functools import wraps
     from flask import request
 
-    def cached(timeout=5 * 60, key='view/%s'):
+    def cached(timeout=5 * 60, key='view/{}'):
         def decorator(f):
             @wraps(f)
             def decorated_function(*args, **kwargs):
-                cache_key = key % request.path
+                cache_key = key.format(request.path)
                 rv = cache.get(cache_key)
                 if rv is not None:
                     return rv

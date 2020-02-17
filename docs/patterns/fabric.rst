@@ -49,16 +49,16 @@ virtual environment::
     def deploy():
         # figure out the package name and version
         dist = local('python setup.py --fullname', capture=True).strip()
-        filename = '%s.tar.gz' % dist
+        filename = f'{dist}.tar.gz'
 
         # upload the package to the temporary folder on the server
-        put('dist/%s' % filename, '/tmp/%s' % filename)
+        put(f'dist/{filename}', f'/tmp/{filename}')
 
         # install the package in the application's virtualenv with pip
-        run('/var/www/yourapplication/env/bin/pip install /tmp/%s' % filename)
+        run(f'/var/www/yourapplication/env/bin/pip install /tmp/{filename}')
 
         # remove the uploaded package
-        run('rm -r /tmp/%s' % filename)
+        run(f'rm -r /tmp/{filename}')
 
         # touch the .wsgi file to trigger a reload in mod_wsgi
         run('touch /var/www/yourapplication.wsgi')
@@ -183,4 +183,4 @@ type ``fab deploy`` and see your application being deployed automatically
 to one or more remote servers.
 
 
-.. _Fabric: http://www.fabfile.org/
+.. _Fabric: https://www.fabfile.org/

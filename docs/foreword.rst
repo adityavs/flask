@@ -28,18 +28,17 @@ Configuration and Conventions
 -----------------------------
 
 Flask has many configuration values, with sensible defaults, and a few
-conventions when getting started.  By convention, templates and static files are
-stored in subdirectories within the application's Python source tree, with the
-names :file:`templates` and :file:`static` respectively. While this can be changed, you
-usually don't have to, especially when getting started.
+conventions when getting started.  By convention, templates and static
+files are stored in subdirectories within the application's Python
+source tree, with the names :file:`templates` and :file:`static`
+respectively. While this can be changed, you usually don't have to,
+especially when getting started.
 
 Growing with Flask
 ------------------
 
 Once you have Flask up and running, you'll find a variety of extensions
-available in the community to integrate your project for production. The Flask
-core team reviews extensions and ensures approved extensions do not break with
-future releases.
+available in the community to integrate your project for production.
 
 As your codebase grows, you are free to make the design decisions appropriate
 for your project.  Flask will continue to provide a very simple glue layer to
